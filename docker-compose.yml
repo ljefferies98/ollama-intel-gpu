@@ -14,6 +14,8 @@ services:
       - ollama-intel-gpu:/root/.ollama
     environment:
       - DISPLAY=${DISPLAY}
+      - MODELS=deepseek-r1:1.5b
+      - OLLAMA_INSTALL_MODELS=deepseek-r1:1.5b
   ollama-webui:
     image: ghcr.io/open-webui/open-webui
     container_name: ollama-webui
