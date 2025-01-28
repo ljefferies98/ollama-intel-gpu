@@ -12,10 +12,10 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ollama-intel-gpu:/root/.ollama
+      - ./startup.sh:/startup.sh
+    entrypoint: ["/usr/bin/bash", "/startup.sh"]
     environment:
       - DISPLAY=${DISPLAY}
-      - MODELS=deepseek-r1:1.5b
-      - OLLAMA_INSTALL_MODELS=deepseek-r1:1.5b
   ollama-webui:
     image: ghcr.io/open-webui/open-webui
     container_name: ollama-webui
