@@ -2,7 +2,8 @@
 
 # Start Ollama in the background.
 echo "Starting Ollama server..."
-cd /llm/ollama && ./ollama serve &
+cd /llm/ollama
+./ollama serve &
 # Record Process ID.
 pid=$!
 
@@ -16,7 +17,7 @@ if ! kill -0 $pid 2>/dev/null; then
 fi
 
 echo "🔴 Retrieve Deepseek model..."
-if ollama pull deepseek-r1:1.5b; then
+if ./ollama pull deepseek-r1:1.5b; then
     echo "🟢 Deepseek model successfully retrieved!"
 else
     echo "❌ Failed to pull Deepseek model. Exiting."
