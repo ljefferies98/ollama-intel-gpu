@@ -2,7 +2,7 @@
 
 # Start Ollama in the background.
 echo "Starting Ollama server..."
-/llm/ollama serve &
+cd /llm/ollama && ./ollama serve &
 # Record Process ID.
 pid=$!
 
