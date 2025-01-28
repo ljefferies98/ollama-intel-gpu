@@ -12,7 +12,6 @@ services:
     volumes:
       - /tmp/.X11-unix:/tmp/.X11-unix
       - ollama-intel-gpu:/root/.ollama
-      - ./startup.sh:/tmp/startup.sh
     entrypoint: ["/usr/bin/bash", "/tmp/startup.sh"]
     environment:
       - DISPLAY=${DISPLAY}
