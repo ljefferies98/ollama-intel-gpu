@@ -25,6 +25,15 @@ else
     exit 1
 fi
 
+echo "🔴 Retrieve Qwen2.5 model..."
+if ./ollama pull qwen2.5:1.5b; then
+    echo "🟢 Qwen2.5 model successfully retrieved!"
+else
+    echo "❌ Failed to pull Qwen2.5 model. Exiting."
+    kill $pid
+    exit 1
+fi
+
 # Wait for Ollama process to finish.
 echo "Waiting for Ollama process to finish..."
 wait $pid
