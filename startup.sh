@@ -20,7 +20,16 @@ echo "🔴 Retrieve Deepseek model..."
 if ./ollama pull deepseek-r1:1.5b; then
     echo "🟢 Deepseek model successfully retrieved!"
 else
-    echo "❌ Failed to pull Deepseek model. Exiting."
+    echo "❌ Failed to pull Deepseek 1.5b model. Exiting."
+    kill $pid
+    exit 1
+fi
+
+echo "🔴 Retrieve Deepseek model..."
+if ./ollama pull deepseek-r1:32b; then
+    echo "🟢 Deepseek model successfully retrieved!"
+else
+    echo "❌ Failed to pull Deepseek 32b model. Exiting."
     kill $pid
     exit 1
 fi
